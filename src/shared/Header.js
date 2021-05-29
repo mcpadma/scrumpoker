@@ -30,6 +30,17 @@ function Header() {
                     )}
                 </Formik>
             </div>
+            <div className = "row headerDiv">
+                <div className="header-inner" >
+                    <div className="row">
+                        <div className="col-md-4 col-lg-4 col-xl-4">
+                            <h4 className="mainHeading">Scrum Poker</h4>
+                        </div>
+                        <div className="col-md-4 col-lg-4 col-xl-4"></div>
+                        <div className="col-md-4 col-lg-4 col-xl-4"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
