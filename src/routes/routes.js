@@ -8,7 +8,7 @@ import { Switch, Route } from "react-router-dom";
 // import MainLayout from '../layouts/mainLayout';
 
 //Pages- components
-import EntryComponent from '../components/entryComponent';
+import {EntryComponent,EnterRoomComponent} from '../components/entryComponent';
 
 const Routes = () => (
   <main>
@@ -24,6 +24,7 @@ const Routes = () => (
       path="/"
       component={EntryComponent}
     />
+    <Route exact path="/room/:id" component={EnterRoomComponent}/>
     </Switch>
   </main>
 );

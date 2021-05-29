@@ -25,7 +25,7 @@
     box-shadow: 0 7px 20px -5px rgb(0 0 0 / 20%);
     padding-bottom: 15px;
     padding-top: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     text-align: center;
 }
 .header-inner{
@@ -59,6 +59,24 @@
 }
 .subtitle{
   margin-top: 20px;
+    width: 100%;
+    font-weight: 200;
+    font-size: 20px;
+}
+.formTitle{
+  text-align: center;
+  width: 100%;
+  font-weight: 500;
+  font-size: 40px;
+  word-wrap: break-word;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.formSubTitle{
+  margin-top: 20px;
+    text-align: center;
     width: 100%;
     font-weight: 200;
     font-size: 20px;
