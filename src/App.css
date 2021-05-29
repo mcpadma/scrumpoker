@@ -20,3 +20,46 @@
   border:none !important;
   background:none !important;
 }
+.headerDiv {
+  height: 60px;
+    box-shadow: 0 7px 20px -5px rgb(0 0 0 / 20%);
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.header-inner{
+  max-width:1000px;
+}
+.mainHeading{
+  color:#4eabc0;
+  font-weight:400;
+}
+.createRoom{
+  background-color: #4eabc0 !important;
+  border:none !important;
+  margin-top: 20px;
+}
+.entryNotLoggedIn{
+  font-family: Roboto,Helvetica Neue,sans-serif;
+    font-size: 14px;
+    color: #32485d;
+    line-height: 1.1;
+    word-wrap: break-word;
+    letter-spacing: .1em;
+}
+.entryContainer{
+  text-align: center;
+}
+.roomTitle{
+  font-weight: 500;
+  font-size: 40px;
+  word-wrap: break-word;
+  margin: auto;
+}
+.subtitle{
+  margin-top: 20px;
+    width: 100%;
+    font-weight: 200;
+    font-size: 20px;
+}
