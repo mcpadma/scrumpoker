@@ -6,17 +6,21 @@ import { BrowserRouter, NavLink, Route } from 'react-router-dom';
 
 import Routes from './routes/routes';
 import roomNoContext from './contexts/roomNoContext';
+import userListContext from './contexts/userListContext';
 
 function App() {
   const [roomNo, setRoomNo] = useState("");
+  const [userList, setUserList] = useState([]);
   return (
-    <roomNoContext.Provider value={[roomNo, setRoomNo]}>
+    // <roomNoContext.Provider value={[roomNo, setRoomNo]}>
+      <userListContext.Provider value={[userList, setUserList]}>
       <div className="App">
         <header>
           <Routes />
         </header>
       </div>
-    </roomNoContext.Provider>
+      </userListContext.Provider>
+    //</roomNoContext.Provider>
   );
 }
 
