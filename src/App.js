@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -11,6 +11,17 @@ import userListContext from './contexts/userListContext';
 function App() {
   const [roomNo, setRoomNo] = useState("");
   const [userList, setUserList] = useState([]);
+
+  // useEffect(() => {
+  //   if(localStorage.getItem('users')) {
+  //     setUserList(localStorage.getItem('users'));
+  //   }
+  // }, []);
+  
+  // useEffect(() => {
+  //   localStorage.setItem('users', userList);
+  // }, [userList]);
+
   return (
     // <roomNoContext.Provider value={[roomNo, setRoomNo]}>
       <userListContext.Provider value={[userList, setUserList]}>
