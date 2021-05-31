@@ -3,6 +3,8 @@ import '../App.css';
 import { uuid } from 'uuidv4';
 import Header from '../shared/Header';
 
+import { useHistory } from 'react-router-dom';
+
 //import roomNoContext from '../contexts/roomNoContext';
 import userListContext from '../contexts/userListContext';
 
@@ -11,6 +13,8 @@ export function EntryComponent() {
   const [roomCreated, setRoomCreated] = useState("");
   const [userList, setUserList] = useContext(userListContext);
 
+  
+  
   const createRoomHandler = () => {
     let roomNo = uuid();
     //setRoomNo(roomNo);
@@ -42,6 +46,8 @@ export function EnterRoomComponent(props) {
   const [userList, setUserList] = useContext(userListContext);
   const [userName, setUserName] = useState("");
 
+  const history = useHistory();
+
   const formStyle ={
     margin: 'auto',
     width:'50%'
@@ -53,6 +59,7 @@ export function EnterRoomComponent(props) {
     }
     else{
       setUserName(e.target.value);
+      
     }
     
 console.log(e.target.value);
@@ -63,6 +70,7 @@ console.log(e.target.value);
     }
     else{
       setUserList([...userList, userName]);
+      history.push(`/room/${props.match.params.id}/scrum/${userName}`);
     }
     
   }

@@ -64,7 +64,7 @@ const history = useHistory();
                         <div className="col-md-4 col-lg-4 col-xl-4 roomHeading">{props.room}</div>
                         {/* <div className="col-md-4 col-lg-4 col-xl-4">{loginStatus ? `${roomNumber}`: ""}</div> */}
                         {/* <div className="col-md-4 col-lg-4 col-xl-4 roomHeading">{useContext(roomNoContext)[0]}</div> */}
-                        <div className="col-md-4 col-lg-4 col-xl-4"></div>
+                        <div className="col-md-4 col-lg-4 col-xl-4">{props.name}</div>
                     </div>
                 </div>
             </div>

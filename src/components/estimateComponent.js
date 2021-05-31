@@ -1,11 +1,18 @@
 import React from 'react'
 
-function estimateComponent() {
+import Header from '../shared/Header';
+import ResultComponent from './resultComponent';
+import EstimateCardsComponent from './estimateCardsComponent';
+
+function EstimateComponent(props) {
+  console.log(props.match.params.name)
   return (
     <div>
-      <h1>Estimate your story</h1>
+      <Header room={props.match.params.id} name={props.match.params.name}/>
+      <EstimateCardsComponent />
+      <ResultComponent />
     </div>
   )
 }
 
-export default estimateComponent
+export default EstimateComponent

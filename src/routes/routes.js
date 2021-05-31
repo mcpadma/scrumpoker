@@ -9,6 +9,8 @@ import { Switch, Route } from "react-router-dom";
 
 //Pages- components
 import {EntryComponent,EnterRoomComponent} from '../components/entryComponent';
+import EstimateComponent from '../components/estimateComponent';
+
 
 const Routes = () => (
   <main>
@@ -25,6 +27,7 @@ const Routes = () => (
       component={EntryComponent}
     />
     <Route exact path="/room/:id" component={EnterRoomComponent}/>
+    <Route exact path="/room/:id/scrum/:name" component={EstimateComponent}/>
     </Switch>
   </main>
 );
