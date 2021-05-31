@@ -3,7 +3,7 @@ import React from 'react'
 function EstimateCardsComponent() {
   return (
     <div>
-      Estimation cards
+      Estimation cards component
     </div>
   )
 }
