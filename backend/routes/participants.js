@@ -12,14 +12,33 @@ router.route('/').get((req, res) => {
 router.route('/create').post((req, res) => {
     const roomNo = req.body.roomNo;
     const createdBy = req.body.createdBy;
-    // let user ={};
-    // user['username'] = req.body.users[username];
-    // user['storyPoint'] = req.body.users[storyPoint];
-    const users = req.body.users;
-    const newParticipant = new Participant({ roomNo, createdBy, users});
-    newParticipant.save()
-        .then(() => res.json("Participant added Successfully!"))
-        .catch(err => res.status(400).json("Error: " + err));
+    let participantName = {};
+    participantName.pname = req.body.pname;
+    participantName.storyPt = req.body.storyPt;
+    console.log(participantName);
+    Participant.find({ roomNo: roomNo }).then(participantRoom => {
+        let partValue = participantRoom;
+        if (partValue.length > 0) {
+            participantRoom.roomNo = req.body.roomNo;
+            participantRoom.createdBy = req.body.createdBy;
+            participantRoom.participantName.push(participantName)
+            console.log(participantRoom)
+             //participantRoom.save({"roomNO": roomNo},{"$push":{"participantName": participantName}})
+              participantRoom.save()
+             .then(() => res.json("Participant added Successfully!"))
+             .catch(err => res.status(400).json("Errors: "+err));
+
+        }
+        else {
+            const newParticipant = new Participant({ roomNo, createdBy, participantName });
+            newParticipant.save()
+                .then(() => res.json("Participant added Successfully!"))
+                .catch(err => res.status(400).json("Error: " + err));
+        }
+
+    })
+    //const participantName = req.body.participantName;
+
 });
 
 // router.route('/:roomNo').get((req, res) => {

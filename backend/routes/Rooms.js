@@ -10,7 +10,8 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/create').post((req, res) => {
-    let roomNo = uuid.v4();
+    //let roomNo = uuid.v4();
+    let roomNo = Math.floor(100000 + Math.random() * 900000)
     const createdBy = req.body.createdBy;
     const newRoom = new Room({ roomNo, createdBy });
     newRoom.save()
