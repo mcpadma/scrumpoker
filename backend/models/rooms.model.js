@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const roomSchema = new Schema({
-    roomNo: { type: String },
+    roomNo: { type: Number },
     createdBy: {type: String, required: true, unique:true},
     isValidRoom: { type: Boolean}
 

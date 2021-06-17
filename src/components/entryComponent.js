@@ -2,6 +2,9 @@ import React, { useState,useContext } from 'react'
 import '../App.css';
 import { uuid } from 'uuidv4';
 import Header from '../shared/Header';
+import ModalComponent from '../shared/modal';
+
+import axios from 'axios';
 
 import { useHistory } from 'react-router-dom';
 
@@ -10,18 +13,25 @@ import userListContext from '../contexts/userListContext';
 
 export function EntryComponent() {
   //const [roomNo, setRoomNo] = useContext(roomNoContext);
+  const [roomNo, setRoomNo] = useState();
   const [roomCreated, setRoomCreated] = useState("");
   const [userList, setUserList] = useContext(userListContext);
-
+  const [modalShow, setShow] = useState(false);
   
   
   const createRoomHandler = () => {
-    let roomNo = uuid();
+    //let roomNo = uuid();
     //setRoomNo(roomNo);
-    setRoomCreated(roomNo);
-    console.log(roomNo);
-    alert(roomNo);
+    setShow(true);
+
+     setRoomCreated(roomNo);
+    // console.log(roomNo);
+    // alert(roomNo);
     localStorage.setItem("room number", roomNo);
+
+  }
+  const roomCreation = (e) =>{
+
   }
   return (
     <div>
@@ -31,7 +41,9 @@ export function EntryComponent() {
           <div className="entryNotLoggedIn">
             <h1 className="roomTitle">Set up your planning poker in seconds, start estimating story points in scrum poker now</h1>
             <h2 className="subtitle">Create your planning room and invite others with a single click</h2>
-            <button type="submit" className="btn btn-primary createRoom" onClick={createRoomHandler}>CREATE INSTANT ROOM</button>
+            {/* <button type="submit" className="btn btn-primary createRoom" onClick={createRoomHandler}>CREATE INSTANT ROOM</button> */}
+            {/* {modalShow ? <ModalComponent className="btn btn-primary createRoom" showModal={modalShow}/> : ""} */}
+            <ModalComponent />
           </div>
         </div>
       </div>

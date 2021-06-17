@@ -91,3 +91,34 @@
 .widthBtn{
   width:100%;
 }
+.modalStyle{
+  font: 500 20px/32px Roboto,Helvetica Neue,sans-serif;
+  display: block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: auto;
+    outline: 0;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    max-height: inherit;
+}
+.modalHeader{margin: 0 0 20px;border-bottom:none;}
+.modalBody p {
+  font-weight: 200;
+    line-height: 1.5em;
+    /* margin: 32px 0; */
+    padding-bottom: 30px;
+    
+}
+.modalFooter{ border-top:none;}
+.modalInputContainer{
+  color: #65073a;
+}
+.modalInput{
+  color: #4eabc0;
+    border-color: #4eabc0;
+    border-radius: 5px;
+    padding: 8px;
+    width: 100%;
+}

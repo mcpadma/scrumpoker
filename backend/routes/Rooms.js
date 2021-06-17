@@ -15,7 +15,10 @@ router.route('/create').post((req, res) => {
     const createdBy = req.body.createdBy;
     const newRoom = new Room({ roomNo, createdBy });
     newRoom.save()
-        .then(() => res.json("Room Created Successfully!"))
+        .then(() => {
+            res.send({message:"Room created successfully!", roomNo: roomNo, userName:req.body.createdBy });
+        })
+        
         .catch(err => res.status(400).json("Error: " + err));
 });
 
