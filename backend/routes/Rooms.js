@@ -28,9 +28,9 @@ router.route('/:roomNo').get((req, res) => {
         .then(room => {
             let roomValue = room
             if (roomValue.length > 0) {
-                res.json(roomValue)
+                res.json({message:"Room found successfully!", roomdata: roomValue})
             }
-            res.send("Room number not found")
+            res.json({message:"Room not found ", roomdata: []})
         }
         )
         .catch(err => res.status(400).json("Error: " + err));

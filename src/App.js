@@ -8,29 +8,43 @@ import Routes from './routes/routes';
 import roomNoContext from './contexts/roomNoContext';
 import userListContext from './contexts/userListContext';
 
+
+import ToastContext from './contexts/toastContext';
+import DummyComponent from './components/dummyComponent';
+
+
+
 function App() {
   const [roomNo, setRoomNo] = useState("");
   const [userList, setUserList] = useState([]);
-
+  const [toast, setToast] = useState({
+    message: '',
+    color: '',
+    open: false,
+  });
   // useEffect(() => {
   //   if(localStorage.getItem('users')) {
   //     setUserList(localStorage.getItem('users'));
   //   }
   // }, []);
-  
+
   // useEffect(() => {
   //   localStorage.setItem('users', userList);
   // }, [userList]);
 
   return (
     // <roomNoContext.Provider value={[roomNo, setRoomNo]}>
-      <userListContext.Provider value={[userList, setUserList]}>
+    // <userListContext.Provider value={[userList, setUserList]}>
+    <ToastContext.Provider value={[toast, setToast]}>
       <div className="App">
+        
         <header>
-          <Routes />
+          <DummyComponent/>
+          {/* <Routes /> */}
         </header>
       </div>
-      </userListContext.Provider>
+    </ToastContext.Provider>
+    //</userListContext.Provider>
     //</roomNoContext.Provider>
   );
 }

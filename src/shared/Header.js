@@ -9,6 +9,7 @@ import '../App.css';
 //import roomNoContext from '../contexts/roomNoContext';
 import userListContext from '../contexts/userListContext';
 
+import axios from 'axios';
 
 function Header(props) {
     let list = useContext(userListContext)[0]
@@ -26,20 +27,27 @@ const history = useHistory();
                 <Formik
                     initialValues={{ roomNo: '' }}
                     onSubmit={(values, { setSubmitting, resetForm }) => {
-                        if (values.roomNo == localStorage.getItem("room number") && isUuid(localStorage.getItem("room number"))) {
-                            alert(JSON.stringify(values, null, 2));
-                            setSubmitting(false);
+                        console.log(values);
+                        let url = "http://localhost:5000/room/"+values.roomNo
+                        axios.get(url).then(res => {
+                            let roomData = res.data.roomdata
+                            if(roomData.length > 0){
+                                setSubmitting(false);
                             setLoginStatus(true);
                             setRoomNumber(values.roomNo);
+
                             history.push(`/room/${values.roomNo}`)
                             //history.push('/room/'+values.roomNo)
                             resetForm();
-                        }
-                        else {
-                            alert("Invalid room number")
-                            resetForm();
-                        }
-
+                            }
+                            else{
+                                alert(res.data.message);
+                                setSubmitting(false);
+                                setLoginStatus(false);
+                                resetForm();
+                            }
+                        })
+                  
                     }}
 
                 >
